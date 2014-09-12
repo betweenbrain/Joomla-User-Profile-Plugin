@@ -46,6 +46,9 @@ class PlgUserProfile extends JPlugin
 	 */
 	public function onContentPrepareForm($form, $data)
 	{
+
+		// die( '<pre>' . print_r($form->getName(), true) . '</pre>');
+
 		if (!($form instanceof JForm))
 		{
 			$this->_subject->setError('JERROR_NOT_A_FORM');
@@ -57,7 +60,7 @@ class PlgUserProfile extends JPlugin
 		if (in_array($form->getName(), array('com_users.profile', 'com_users.user')))
 		{
 			// Add the registration fields to the form.
-			JForm::addFormPath(__DIR__ . '/profiles');
+			JForm::addFormPath(__DIR__ . '/forms');
 
 			$form->loadFile('profile', false);
 
